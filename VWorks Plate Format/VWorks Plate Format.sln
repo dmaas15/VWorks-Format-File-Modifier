@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VWorks Plate Format", "..\VWorks Plate Format\VWorks Plate Format.csproj", "{F0FDCA93-19B8-439F-B6A2-4B815D74DAD8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VWorks Plate Format", "VWorks Plate Format.csproj", "{F0FDCA93-19B8-439F-B6A2-4B815D74DAD8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B7301B5A-A40B-48CC-AA94-D2F7BA1F1285}
+		SolutionGuid = {59D4413E-3398-487B-A988-2261A41FEC9A}
 	EndGlobalSection
 EndGlobal
