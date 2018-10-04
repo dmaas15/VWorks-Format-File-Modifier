@@ -15,31 +15,15 @@ namespace VWorks_Plate_Format
 {
     public partial class Form1 : Form
     {
-        public Form1()
-        {
-            InitializeComponent();
-        }
-
-        private void bnTest_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog
-            {
-                FileName = "format",
-                Filter = "XML|*.xml",
-                InitialDirectory = @"C:\VWorks Workspace\VWorks\Hit Picking\Format Files"
-            };
-            string headerLines = @"<?xml version='1.0' encoding='ASCII' ?>
-                <Velocity11 file='V11PipettingFormatFile' md5sum='a34f0169acdca2a5fb0e67c75a2c7214' version='v1.0.0' >
-	            <DeviceType Type='Bravo' />
-	            <CherryFormat >
-		        <SourcePlate Labware='96 Matrix open reservoir movable' />
-		        <DestinationPlate Labware='96 Eppendorf Twin.tec PCR' />
-		        <Operation Type='CherryPicking' >
-			    <SourcePlate NumberOfWell='96' />
-			    <DestinationPlate NumberOfWell='96' />
-			    <UnselectedWells >";
-
-            string fullPlate = @"<Well Column='2' Row='1' />
+        string fullPlate = @"<Well Column='1' Row='1' />
+				<Well Column='1' Row='2' />
+				<Well Column='1' Row='3' />
+				<Well Column='1' Row='4' />
+				<Well Column='1' Row='5' />
+				<Well Column='1' Row='6' />
+				<Well Column='1' Row='7' />
+				<Well Column='1' Row='8' />
+				<Well Column='2' Row='1' />
 				<Well Column='2' Row='2' />
 				<Well Column='2' Row='3' />
 				<Well Column='2' Row='4' />
@@ -126,7 +110,128 @@ namespace VWorks_Plate_Format
 				<Well Column='12' Row='5' />
 				<Well Column='12' Row='6' />
 				<Well Column='12' Row='7' />
-				<Well Column='12' Row = '8' />";
+				<Well Column='12' Row='8' />";
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void bnTest_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog
+            {
+                FileName = "format",
+                Filter = "XML|*.xml",
+                InitialDirectory = @"C:\VWorks Workspace\VWorks\Hit Picking\Format Files"
+            };
+
+            string headerLines = @"<?xml version='1.0' encoding='ASCII' ?>
+                <Velocity11 file='V11PipettingFormatFile' md5sum='a34f0169acdca2a5fb0e67c75a2c7214' version='v1.0.0' >
+	            <DeviceType Type='Bravo' />
+	            <CherryFormat >
+		        <SourcePlate Labware='96 Matrix open reservoir movable' />
+		        <DestinationPlate Labware='96 Eppendorf Twin.tec PCR' />
+		        <Operation Type='CherryPicking' >
+			    <SourcePlate NumberOfWell='96' />
+			    <DestinationPlate NumberOfWell='96' />
+			    <UnselectedWells >";
+
+            /*string fullPlate = @"<Well Column='1' Row='1' />
+				<Well Column='1' Row='2' />
+				<Well Column='1' Row='3' />
+				<Well Column='1' Row='4' />
+				<Well Column='1' Row='5' />
+				<Well Column='1' Row='6' />
+				<Well Column='1' Row='7' />
+				<Well Column='1' Row='8' />
+                <Well Column='2' Row='1' />
+				<Well Column='2' Row='2' />
+				<Well Column='2' Row='3' />
+				<Well Column='2' Row='4' />
+				<Well Column='2' Row='5' />
+				<Well Column='2' Row='6' />
+				<Well Column='2' Row='7' />
+				<Well Column='2' Row='8' />
+				<Well Column='3' Row='1' />
+				<Well Column='3' Row='2' />
+				<Well Column='3' Row='3' />
+				<Well Column='3' Row='4' />
+				<Well Column='3' Row='5' />
+				<Well Column='3' Row='6' />
+				<Well Column='3' Row='7' />
+				<Well Column='3' Row='8' />
+				<Well Column='4' Row='1' />
+				<Well Column='4' Row='2' />
+				<Well Column='4' Row='3' />
+				<Well Column='4' Row='4' />
+				<Well Column='4' Row='5' />
+				<Well Column='4' Row='6' />
+				<Well Column='4' Row='7' />
+				<Well Column='4' Row='8' />
+				<Well Column='5' Row='1' />
+				<Well Column='5' Row='2' />
+				<Well Column='5' Row='3' />
+				<Well Column='5' Row='4' />
+				<Well Column='5' Row='5' />
+				<Well Column='5' Row='6' />
+				<Well Column='5' Row='7' />
+				<Well Column='5' Row='8' />
+				<Well Column='6' Row='1' />
+				<Well Column='6' Row='2' />
+				<Well Column='6' Row='3' />
+				<Well Column='6' Row='4' />
+				<Well Column='6' Row='5' />
+				<Well Column='6' Row='6' />
+				<Well Column='6' Row='7' />
+				<Well Column='6' Row='8' />
+				<Well Column='7' Row='1' />
+				<Well Column='7' Row='2' />
+				<Well Column='7' Row='3' />
+				<Well Column='7' Row='4' />
+				<Well Column='7' Row='5' />
+				<Well Column='7' Row='6' />
+				<Well Column='7' Row='7' />
+				<Well Column='7' Row='8' />
+				<Well Column='8' Row='1' />
+				<Well Column='8' Row='2' />
+				<Well Column='8' Row='3' />
+				<Well Column='8' Row='4' />
+				<Well Column='8' Row='5' />
+				<Well Column='8' Row='6' />
+				<Well Column='8' Row='7' />
+				<Well Column='8' Row='8' />
+				<Well Column='9' Row='1' />
+				<Well Column='9' Row='2' />
+				<Well Column='9' Row='3' />
+				<Well Column='9' Row='4' />
+				<Well Column='9' Row='5' />
+				<Well Column='9' Row='6' />
+				<Well Column='9' Row='7' />
+				<Well Column='9' Row='8' />
+				<Well Column='10' Row='1' />
+				<Well Column='10' Row='2' />
+				<Well Column='10' Row='3' />
+				<Well Column='10' Row='4' />
+				<Well Column='10' Row='5' />
+				<Well Column='10' Row='6' />
+				<Well Column='10' Row='7' />
+				<Well Column='10' Row='8' />
+				<Well Column='11' Row='1' />
+				<Well Column='11' Row='2' />
+				<Well Column='11' Row='3' />
+				<Well Column='11' Row='4' />
+				<Well Column='11' Row='5' />
+				<Well Column='11' Row='6' />
+				<Well Column='11' Row='7' />
+				<Well Column='11' Row='8' />
+				<Well Column='12' Row='1' />
+				<Well Column='12' Row='2' />
+				<Well Column='12' Row='3' />
+				<Well Column='12' Row='4' />
+				<Well Column='12' Row='5' />
+				<Well Column='12' Row='6' />
+				<Well Column='12' Row='7' />
+				<Well Column='12' Row = '8' />";*/
 
             string footerLines=@"</UnselectedWells>
 			    <Dispense Type='ColumnWise' />
@@ -238,6 +343,8 @@ namespace VWorks_Plate_Format
             {
                 //Do something with the file, for example read text from it
                 string sample = "";
+                string tempString = "";
+
                 string[] text = File.ReadAllLines(fileName);
                 foreach(string line in text)
                 {
@@ -249,10 +356,20 @@ namespace VWorks_Plate_Format
                     //Debug.Print(iRow.ToString());
                     //Debug.Print(words[1].Substring(0, 1))
                     sample= "<Well Column='" + words[1].Substring(1)+ "' Row='" + iRow.ToString()+ "' />";
-                    Debug.WriteLine(sample);
-                    //Debug.Print(iRow.ToString());
+                    if(fullPlate.Contains(sample))
+                    {
+                        //Debug.Print("Found");
+                        fullPlate = fullPlate.Remove(fullPlate.IndexOf(sample), sample.Length);
+                    }
+                    else
+                    {
+                        Debug.Print("Not There Why?");
+                    }
+                    //Debug.WriteLine(sample);
+                    //Debug.Print(fullPlate);
                 }
-                //Debug.Write(text);
+                Debug.Print(fullPlate);
+
             }
         }
     }
